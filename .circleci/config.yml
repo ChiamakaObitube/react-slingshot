@@ -7,12 +7,14 @@ jobs:
       - image: circleci/node:13.8.0
   steps:
     - checkout
+    - run: npm i
     - run: npm run lint
   test:
     docker: # it uses the docker executor
       - image: circleci/node:13.8.0
     steps:
       - checkout
+      - run: npm i
       - run: npm run test
   analyze:
     docker: # it uses the docker executor
